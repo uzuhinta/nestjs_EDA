@@ -75,3 +75,68 @@ Nest is [MIT licensed](LICENSE).
 ## A layered (N-tier) architecture
 
 ![alt text](./docs/3-layered.png)
+
+## Hexagonal architecture - ports and adapters architecture
+
+That arms to create a highly decoupled and testable application by emphasizing the separation of concerns between core business and external concerns such as database, user interface and framework
+
+The key Concept: the use of ports in adapter
+
+Ports are interfaces that represent the entry points into the core. They Define the contract for interactions with the external world and represent the applications use cases and bound. Allowing external concerns to interact with the application
+
+Adapters implement the interfaces or parts defined by the core domain. They serve as the bridge between the core application and the external concern. Adapters are responsible for translating the language of the core domain into something that external systems can Such as data persistence mechanisms apis or user interface.
+
+ The architecture revolves around the idea of dependency inverse. Which means that high level modules should not depend on low-level modules such as those external concerns. Instead both should depend on abstractions known as port. This inversion of dependencies enables the core to remain independent and isolated from external systems
+
+Benefit: 
+- loose coupling between the core domain and external. Allowing changes to a current in one area without affecting others
+- Testability: it becomes easier to test the core domain and isolation Without relying on external system
+- Flexibility: allows for the replacement Or modification of external concerns or adapters
+- Isolation of core domain: 
+- Domain Centric design: Encourages a strong focus on the core domain and The Business
+
+
+![alt text](./docs/4-hexagon.png)
+
+![alt text](./docs/image.png)
+
+![alt text](./docs/image-1.png)
+
+![alt text](./docs/image-2.png)
+
+summarize: Hexagonal architecture focuses on a strong separation of concerns, dependency inversion, And clear interfaces known as ports
+
+## Command query responsibility segregation
+ 
+software architectural pattern that separates the concerns of reading data (query) and writing data commands into separate models
+
+The core idea behind cqrs is to have different models and approaches for handling read And write operations in Rather than combining them into a single model
+
+In traditional architectures and Credit Systems, The same model is often used to handle both read and write operations
+
+![alt text](./docs/image-3.png)
+
+However as applications grow in complexity, Requirements for reading and writing data can diverge significantly. This can lead to issues related to Performance scalability and maintainability
+
+What's cqrs the applications data model is divided into two separate parts
+
+![alt text](./docs/image-4.png)
+
+The command model: This model enforces business rules and validation logic to ensure that data changes are correct and consistent
+
+the query model: optimized for reading data And often involves denormalized data structures or specialized views that cater to specific read use
+
+This separation allows for efficient querying and improves the overall performance of the read operation
+
+The cqrs approach offers several benefits: 
+
+- Perform: It allows us to optimize the read and write operations independently. This allows us to choose the right tool for the job >And optimize the data source for their specific use cases
+- Scalability: allow scale the read and write operations . For example an excuse case is a flight booking system. Where the read operations are much much more frequent
+- Maintainability:  allows us to evolve the read and write models independently as well
+
+drawbacks: 
+
+- Complexity: an additional complexity to a system making it harder to understand and not Suited for simple application
+- eventual consistency: 
+
+CQRS is also used in combination with event sourcing and event-driven architecture.
