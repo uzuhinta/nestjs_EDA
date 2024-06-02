@@ -95,6 +95,8 @@ Benefit:
 - Isolation of core domain: 
 - Domain Centric design: Encourages a strong focus on the core domain and The Business
 
+Note that instead of using abstract classes we could use interfaces here but the reason we chose to use abstract classes. that they serve as injection tokens in nestjs. With interface, purely typescript constructs and are wiped out during the transportation process. this means that they would not be available at run time making classes a much better choice for us to use
+
 
 ![alt text](./docs/4-hexagon.png)
 
