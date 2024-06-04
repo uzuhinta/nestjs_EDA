@@ -108,6 +108,32 @@ Note that instead of using abstract classes we could use interfaces here but the
 
 summarize: Hexagonal architecture focuses on a strong separation of concerns, dependency inversion, And clear interfaces known as ports
 
+## Onion architecture
+
+![alt text](./docs/image-5.png)
+
+## Domain-driven design
+
+Domain driven design tackling complexity in the heart of software. The structure in language of our code should match that of the business domain
+
+DDD is about creating a language that connects the implementation to the business experts and their knowledge
+
+Strategy design: 
+- Domain story telling
+- Event storming
+- Contact mapping
+
+=> identify the core domain and sub domain, answer the bound context and context map in our system
+
+Building block:
+- Entity: 
+- Value object
+- Aggregates
+- Repository
+- Service: encapsulate domain logic that doesn't belong to any particular entity or value object
+- Factories: creation of objects involves complex validation, initialization
+- Event: used to communicate and capture domain specific information about actions or domain model change that have happened in the past; crucial rule in enabling loose coupling scalability, eventual consistency and distributed. 2 type of event: domain event and integration
+
 ## Command query responsibility segregation
  
 software architectural pattern that separates the concerns of reading data (query) and writing data commands into separate models
@@ -142,3 +168,22 @@ drawbacks:
 - eventual consistency: 
 
 CQRS is also used in combination with event sourcing and event-driven architecture.
+
+## Event-driven architecture
+
+Event define as a significant change in state such as user action, data update, messages from external service
+
+Three main component: 
+- Event producers: publish events to the event bus, act as source of event
+- Event consumers: subscribe to event from the event bus, act as sink of event
+- Event bus: a communiation chanel that connect event producers and event consumers, act as a message broker
+
+Benefit:
+- Loose coupling between component since consumers don't need to know about the producers and versa
+- Scalability: we can add more consumer to increase the throughput and processing capability
+- Async processing: 
+
+Drawback
+- Overall complexity: maintain this system can be challenging 
+- Data consistency complexity
+- Transaction integrity: multiple services
