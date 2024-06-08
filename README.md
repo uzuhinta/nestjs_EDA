@@ -187,3 +187,7 @@ Drawback
 - Overall complexity: maintain this system can be challenging 
 - Data consistency complexity
 - Transaction integrity: multiple services
+
+## Eventual consistency
+
+CAP theorem describe the trade-off that arise when designing distributed systems 
