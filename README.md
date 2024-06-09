@@ -229,3 +229,19 @@ The rehydrating aggregates concepts is the process of reconstructing an object b
 When we say hydration, we're refering to the process of populating an object's Fields or properties with data from a a store.
 
 In the context of aggreate, redydration is the reverse process. It's about taking the store data and using it to restore the aggreate object to its previous state. 
+
+## Snapshot
+
+Rehydrate work well for small event, However as the number of events grows, the rehydrate process can become time-consuming and quite inefficient.
+
+To address this issue, we can use the technique known as snapshot.You can use snapshot as a starting point and then apply only the subsequent events to reach the desired current state. 
+
+## Sagas
+
+A saga is a pattern used to manage and coordinate the execution of long-running business process or distributed transaction
+
+In event-drivent system, sagas are typically implemented as a state machine that react to events like command to other aggreates or services. 
+
+For example, a saga could be used to implement a multi-step onborading process for new user. Each step will be represented by a command and an event. The saga will react to these event and issule the next command in the sequence. The saga would event be responsibe for handling timeout and failures ensuring that the entire process either successed or fails as a whole 
+
+Implement: an issue the notify facility supervisor command in the instance where three alarm from the same facility are creatred in a 5-secon window
