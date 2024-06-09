@@ -221,3 +221,11 @@ Drawback:
 - being complex: Event sourcing is a complex pattern that requires a lot of boilerplate code to implement. This can make the project difficult to understand and maintain
 
 - Eventual consistency: The read side of the application is eventually consistent with the write side
+
+## Rehydrate
+
+The rehydrating aggregates concepts is the process of reconstructing an object by replay the event that have been previously stored in the event store.
+
+When we say hydration, we're refering to the process of populating an object's Fields or properties with data from a a store.
+
+In the context of aggreate, redydration is the reverse process. It's about taking the store data and using it to restore the aggreate object to its previous state. 
