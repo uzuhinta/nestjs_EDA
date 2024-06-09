@@ -191,3 +191,33 @@ Drawback
 ## Eventual consistency
 
 CAP theorem describe the trade-off that arise when designing distributed systems 
+
+## Even sourcing
+
+Event sourcing is an architectural pattern utilized in software development and distributed systems. Were the state of an application is determined by a sequence of events Rather than storing the current As a single record in a database.
+
+An event sourcing, each change in the application state is captured as an immutable event. These events represent meaningful action or fact that have occurred within the system. instead of updating the state directly, new event are appended to an event store in chronological order. This is fundamentally different from the traditional approach. the current state of stored in a database and updated whenever a change occurs.
+
+Some key characteristics of event sourcing are:
+
+- Immutable events: Events cannot be altered or deleted once stored. >Ensuring an auditable record of all changes made to the application State over time
+
+- Event store: Events are stored in an event store, an appendix log of event. >The event store is the single source of Truth for the application state
+
+- state reconstruction: The application State can be reconstructed by replaying all the events from the event store. This allows for a comprehensive historical view of the application State and supports features like time travel debugging, Logging and audit
+
+Some benefits of event sourcing are:
+
+- Auditability:  provides a complete history of all changes made to the application State over time. This allows us to easily audit the system and understand how the state is evolved
+
+- Time travel debugging: the ability to replay events and enables developers to time travel
+
+- debug the application: 
+
+- Scalability: Event sourcing allows us to scale the read and write side of the application independently
+
+Drawback:
+
+- being complex: Event sourcing is a complex pattern that requires a lot of boilerplate code to implement. This can make the project difficult to understand and maintain
+
+- Eventual consistency: The read side of the application is eventually consistent with the write side
